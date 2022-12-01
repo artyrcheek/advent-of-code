@@ -26,7 +26,9 @@ class SonarSweeper
   end
 
   def sample(index)
-    # with sample size 3: [can_sample, can_sample, can_sample, nil, nil]
+    # with sample size 3
+    # [1,2,3,4,5,6,7,8,9]
+    # [y,y,y,y,y,y,y,n,n] y=can sample, n=cannot sample (because we need 3 samples)
     return nil if index < 0 || index > @input.length-@sample_size
     @input.slice(index, @sample_size)
   end
