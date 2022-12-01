@@ -10,16 +10,8 @@ class SonarSweeper
     end
   end
 
-  def no_change_measurements
-    all_measurements.select { |measurement| measurement == :no_change }
-  end
-
-  def positive_measurements
-    all_measurements.select { |m| m == :increase }
-  end
-
-  def negative_measurements
-    all_measurements.select { |m| m == :decrease }
+  def positive_measurement_count
+    all_measurements.count { |m| m == :increase }
   end
 
   private

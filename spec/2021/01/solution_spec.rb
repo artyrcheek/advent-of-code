@@ -31,20 +31,12 @@ RSpec.describe Year2021::Day01 do
       expect(sonar_sweeper.all_measurements[4]).to eq(:decrease)
     end
 
-    it "returns ten measurements" do
-      expect(sonar_sweeper.all_measurements.length).to eq(10)
-    end
-
-    it "returns 9 valid measurements" do
+    it "returns 9 measurements" do
       expect(sonar_sweeper.all_measurements.compact.length).to eq(9)
     end
 
     it "returns 7 positive measurements" do
-      expect(sonar_sweeper.positive_measurements.length).to eq(7)
-    end
-
-    it "returns 2 negative measurements" do
-      expect(sonar_sweeper.negative_measurements.length).to eq(2)
+      expect(sonar_sweeper.positive_measurement_count).to eq(7)
     end
   end
 
@@ -58,18 +50,8 @@ RSpec.describe Year2021::Day01 do
     end
 
     it "returns 5 positive measurements" do
-      expect(sonar_sample_sweeper.positive_measurements.length).to eq(5)
+      expect(sonar_sample_sweeper.positive_measurement_count).to eq(5)
     end
-
-    it "returns 1 no change measurement" do
-      expect(sonar_sample_sweeper.no_change_measurements.length).to eq(1)
-    end
-
-    it "returns 1 decrease measurement" do
-      expect(sonar_sample_sweeper.negative_measurements.length).to eq(1)
-    end
-
-
   end
 
   private
