@@ -11,7 +11,7 @@ class SonarSweeper
   end
 
   def positive_measurement_count
-    all_measurements.count { |m| m == :increase }
+    all_measurements.count(:increase)
   end
 
   private
