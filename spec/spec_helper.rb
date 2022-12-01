@@ -11,3 +11,8 @@ end
 RSpec.configure do |config|
 
 end
+
+
+def chomped_example
+  example_input.lines(chomp: true)
+end

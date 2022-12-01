@@ -23,7 +23,7 @@ RSpec.describe Year2022::Day01 do
   }
 
   def elves
-    Elves.from_text(example_input.lines(chomp: true))
+    Elves.from_text(chomped_example)
   end
 
   describe "part 1" do
