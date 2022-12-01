@@ -19,17 +19,16 @@ class SonarSweeper
   def measure_change(index)
     previous_sample = sample(index-1)
     current_sample = sample(index)
+    return nil if [current_sample, previous_sample].any?(&:nil?)
 
-    return nil if current_sample.nil? || previous_sample.nil?
     return :no_change if current_sample.sum == previous_sample.sum
     current_sample.sum > previous_sample.sum ? :increase : :decrease
   end
 
   def sample(index)
-    return nil if index < 0
-    sample = @input.slice(index, @sample_size)
-    return nil if sample.length != @sample_size
-    sample
+    # with sample size 3: [can_sample, can_sample, can_sample, nil, nil]
+    return nil if index < 0 || index > @input.length-@sample_size
+    @input.slice(index, @sample_size)
   end
 
 end
