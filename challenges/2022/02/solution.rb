@@ -8,4 +8,5 @@ module Year2022
     def part_2
       StrategyGuide.new(data, second_column: DesiredOutcome).total_score
     end
+  end
 end
