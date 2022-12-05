@@ -45,13 +45,14 @@ RSpec.describe Year2022::Day05 do
 
   describe "moving" do
     it "can move crates correctly" do
-      parsed_crate.move(1, from: 2, to: 1)
+      crane = CrateMover9000.new(parsed_crate)
+      crane.move(1, from: 2, to: 1)
       expect(parsed_crate.columns).to eq([%w[Z N D], %w[M C], %w[P]])
-      parsed_crate.move(3, from: 1, to: 3)
+      crane.move(3, from: 1, to: 3)
       expect(parsed_crate.columns).to eq([%w[], %w[M C], %w[P D N Z]])
-      parsed_crate.move(2, from: 2, to: 1)
+      crane.move(2, from: 2, to: 1)
       expect(parsed_crate.columns).to eq([%w[C M], %w[], %w[P D N Z]])
-      parsed_crate.move(1, from: 1, to: 2)
+      crane.move(1, from: 1, to: 2)
       expect(parsed_crate.columns).to eq([%w[C], %w[M], %w[P D N Z]])
     end
   end
@@ -59,6 +60,12 @@ RSpec.describe Year2022::Day05 do
   describe "part 1" do
     it "solves the example" do
       expect(RearragementProcedure.new(example_input).top_of_stacks).to eq("CMZ")
+    end
+  end
+
+  describe "part 2" do
+    it "solves the example with the crate_mover_9001" do
+      expect(RearragementProcedure.new(example_input, with_crane: CrateMover9001).top_of_stacks).to eq("MCD")
     end
   end
 end

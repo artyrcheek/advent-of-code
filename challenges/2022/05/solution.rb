@@ -9,7 +9,7 @@ module Year2022
     end
 
     def part_2
-      nil
+      RearragementProcedure.new(@input, with_crane: CrateMover9001).top_of_stacks
     end
 
     private
