@@ -1,4 +1,4 @@
-An OOP approach to AOC in Ruby.
+An OOP approach to AOC in Ruby with an emphasis on readbility.
 
 <!--- advent_readme_stars table --->
 ## 2022 Results
