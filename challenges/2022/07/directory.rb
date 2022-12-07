@@ -45,7 +45,8 @@ class Directory
   end
 
   def full_path
-    @parent ? @parent.full_path + "/" + @path : @path
+    return @parent.full_path + "/" + @path if @parent
+    @path
   end
 
   def ==(other)
