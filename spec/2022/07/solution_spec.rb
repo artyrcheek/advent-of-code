@@ -35,6 +35,7 @@ RSpec.describe Year2022::Day07 do
     TerminalReader.new(chomped_example)
   }
 
+
   # Run the terminal before each test
   before(:each) do
     terminal_reader.run
@@ -68,5 +69,28 @@ RSpec.describe Year2022::Day07 do
   end
 
   describe "part 2" do
+    let(:file_system_size) {70_000_000}
+    let(:unused_space_needed) {30_000_000}
+
+    it "can calculate the correct amount of free space" do
+      expect(file_system_size - terminal_reader.root_directory.size ).to eq(21618835)
+    end
+
+    it "can calculate the smallest directory needed to free enough space" do
+      used_space = terminal_reader.root_directory.size
+      free_space = file_system_size - used_space
+
+      space_needed = unused_space_needed - free_space
+
+      subdirectories = terminal_reader.root_directory.all_subdirectories
+      expect(subdirectories.select{|sd| sd.size > space_needed}.min_by(&:size).path).to eq("d")
+    end
+  end
+
+  describe "fun" do
+    it "can pretty print" do
+      puts
+      pp terminal_reader.root_directory
+    end
   end
 end
