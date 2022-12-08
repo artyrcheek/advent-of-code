@@ -14,8 +14,8 @@ class TerminalReader
       case line
       when COMMAND_REGEX
         process_command(line)
-      when File::LINE_REGEX
-        @current_directory.add_file(File.from_line(line))
+      when FileItem::LINE_REGEX
+        @current_directory.add_file(FileItem.from_line(line))
       when Directory::LINE_REGEX
         @current_directory.add_subdirectory(Directory.from_line(line, @current_directory))
       end

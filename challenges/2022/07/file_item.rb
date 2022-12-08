@@ -1,4 +1,4 @@
-class File
+class FileItem
   LINE_REGEX = /^(\d+)\s+(.*)$/
   attr_reader :name, :size
 
