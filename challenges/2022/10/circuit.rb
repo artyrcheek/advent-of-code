@@ -23,7 +23,7 @@ class Circuit
   def print_crt
     puts
     @crt_lines.each do |line|
-      puts line.join " "
+      puts line.join ""
     end
   end
 
@@ -35,7 +35,7 @@ class Circuit
     crt_row = (@cycles / CRT_WIDTH)
     crt_col = @cycles % CRT_WIDTH
     @crt_lines[crt_row] ||= Array.new(CRT_WIDTH, ".")
-    @crt_lines[crt_row][crt_col] = sprite_position.include?(crt_col) ? "X" : "."
+    @crt_lines[crt_row][crt_col] = sprite_position.include?(crt_col) ? "██" : "  "
   end
 
   def add_cycles(cycles)
