@@ -3,7 +3,7 @@ class Coords
   def initialize(x, y)
     @x = x
     @y = y
-    @history = [[@x, @y]]
+    @history = [[@x, @y]]  #Storing the history of all coords is pretty slow
   end
 
   def to_a
