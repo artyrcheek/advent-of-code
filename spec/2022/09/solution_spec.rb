@@ -15,7 +15,20 @@ RSpec.describe Year2022::Day09 do
       R 2
     EOF
   }
+  let(:example_input_2) {
+    <<~EOF
+      R 5
+      U 8
+      L 8
+      D 3
+      R 17
+      D 10
+      L 25
+      U 20
+    EOF
+  }
   let(:rope) {Rope.new}
+  let(:long_rope) {Rope.new(9)}
 
   describe "coords" do
     it "coords know when they are touching with 1 x offset" do
@@ -59,5 +72,9 @@ RSpec.describe Year2022::Day09 do
   end
 
   describe "part 2" do
+    it "solves the example" do
+      long_rope.read_instructions(example_input_2.lines(chomp: true))
+      expect(long_rope.tail.history.length).to eq(36)
+    end
   end
 end

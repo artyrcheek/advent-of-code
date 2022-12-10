@@ -11,7 +11,9 @@ module Year2022
     end
 
     def part_2
-      nil
+      rope = Rope.new(9)
+      rope.read_instructions(data)
+      rope.tail.history.length
     end
 
   end

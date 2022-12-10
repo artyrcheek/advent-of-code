@@ -6,11 +6,18 @@ DIRECTION_TO_VECTOR = {
 }.freeze
 
 class Rope
-  attr_reader :head, :tail
+  attr_reader :body
 
-  def initialize(head: Coords.new(0, 0), tail: Coords.new(0, 0))
-    @head = head
-    @tail = tail
+  def initialize(segments = 1)
+    @body = (segments+1).times.map{ Coords.new(0,0)}
+  end
+
+  def head
+    @body.first
+  end
+
+  def tail
+    @body.last
   end
 
   def read_instructions(instructions)
@@ -22,16 +29,13 @@ class Rope
 
   def move_head(direction, amount)
     amount.times do
-      @head.move(DIRECTION_TO_VECTOR[direction])
-      move_tail if tail_needs_to_move?
+      head.move(DIRECTION_TO_VECTOR[direction])
+      current_segment = head
+      body[1..-1].each do |segment|
+        segment.move_towards(current_segment) unless segment.is_touching?(current_segment)
+        current_segment = segment
+      end
     end
   end
 
-  def move_tail
-    @tail.move_towards(@head)
-  end
-
-  def tail_needs_to_move?
-    !@head.is_touching?(@tail)
-  end
 end
