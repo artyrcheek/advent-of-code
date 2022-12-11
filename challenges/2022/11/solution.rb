@@ -11,7 +11,9 @@ module Year2022
     end
 
     def part_2
-      nil
+      tribe = Tribe.from_input(@input)
+      10_000.times { tribe.run_round(worried: true) }
+      tribe.monkey_business_score
     end
   end
 end
