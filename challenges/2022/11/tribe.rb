@@ -45,12 +45,9 @@ class Tribe < Array
   end
 
   def calculate_least_common_multiple
-    puts "Calculating least common multiple..."
     operation_operands = map{ |monkey| monkey.operation.operand.to_i}
     worry_test_operands = map{ |monkey| monkey.worry_test.operand.to_i}
     operands = (operation_operands + worry_test_operands).filter(&:positive?)
-    lcm = operands.reduce(&:lcm)
-    puts "Least common multiple is #{lcm}."
-    lcm
+    operands.reduce(&:lcm)
   end
 end
