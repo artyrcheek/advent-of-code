@@ -67,9 +67,6 @@ module Year2023
         @colors = colors
       end
 
-      def power
-      end
-
       def valid?
         @colors.all? { |color, count| count <= MAX_COLORS[color] }
       end
