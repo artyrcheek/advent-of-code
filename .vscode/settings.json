@@ -1,0 +1,5 @@
+{
+  "rubyLsp.formatter": "none",
+  "ruby.rubocop.onSave": false,
+  "ruby.rubocop.suppressRubocopWarnings": true
+}
