@@ -44,7 +44,7 @@ module Year2023
       VALID_DIGIT_REGEX = /(?=(#{NUMBER_WORDS.join('|')}|\d))/
 
       def digits
-        # turn 4nineeightseven2 into [9, 8, 7]
+        # turn 4nineeightseven2 into [4, 9, 8, 7, 2]
         @line.scan(VALID_DIGIT_REGEX).compact.map do |word|
           word = word.first # scan returns an array of arrays
           word =~ /\d/ ? word : NUMBER_WORDS.find_index(word) + 1
