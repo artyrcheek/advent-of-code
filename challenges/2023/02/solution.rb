@@ -11,7 +11,9 @@ module Year2023
     end
 
     def part_2
-      data.map { |line| Game.parse(line) }.map(&:power).sum
+      games = data.map { |line| Game.parse(line) }
+      powers = games.map(&:power)
+      powers.sum
     end
 
     class Game

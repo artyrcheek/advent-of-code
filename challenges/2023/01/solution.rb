@@ -12,7 +12,6 @@ module Year2023
 
     def part_2
       data.sum do |line|
-
         WordCalibrationValue.new(line).first_and_last_digits
       end
     end
