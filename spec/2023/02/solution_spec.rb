@@ -20,12 +20,8 @@ RSpec.describe Year2023::Day02 do
   end
 
   describe "part 2" do
-    # it "returns nil for the example input" do
-    #   expect(described_class.part_2(example_input)).to eq(nil)
-    # end
-
-    # it "returns nil for my input" do
-    #   expect(described_class.part_2(input)).to eq(nil)
-    # end
+    it "returns the correct answer for the example input" do
+      expect(described_class.part_2(example_input)).to eq(2286)
+    end
   end
 end
